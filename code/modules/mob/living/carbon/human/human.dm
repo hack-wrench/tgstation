@@ -1081,6 +1081,10 @@
 		if(src == viewer)
 			continue
 
+		// viewer not in a closet/box and at the same level as src
+		if(src.z != viewer.z && viewer.z != 0)
+			continue
+
 		// if src inside closet/box
 		var/turf/real_src_turf = get_turf(src.loc)
 
