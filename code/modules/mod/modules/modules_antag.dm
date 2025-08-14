@@ -581,14 +581,17 @@
 		return MOD_ABORT_USE
 
 /obj/item/mod/module/syndicate_screamer/proc/on_view_equipment(datum/source, mob/living/carbon/human/viewer)
-	// SIGNAL_HANDLER
+	SIGNAL_HANDLER
 
 	var/mood_category = "scream module"
 
 	if(active && !viewer.has_mood_of_category(mood_category))
 		to_chat(viewer, span_notice("You see indescribable horror."))
 		viewer.add_mood_event(mood_category, /datum/mood_event/scream_module)
-		viewer.emote("scream")
+
+		// dreamchecker(must_not_sleep)
+		spawn(0)
+			viewer.emote("scream")
 
 /datum/mood_event/scream_module
 	description = "I cannot forget the horror I experienced."
