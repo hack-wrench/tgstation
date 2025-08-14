@@ -1089,7 +1089,7 @@
 		var/turf/real_src_turf = get_turf(src.loc)
 
 		if(src.stat in list(CONSCIOUS, SOFT_CRIT)) // in conscious
-			if(!(src.is_blind())) // can see
+			if(!src.is_blind()) // can see
 				if(!(viewer.invisibility || viewer.alpha <= 50)) //cloaked
 					if(isturf(viewer.loc)) // on a turf, because they could be in a closet, disposals, or a vehicle.
 						if(can_see(real_src_turf, viewer, 7))
@@ -1099,7 +1099,7 @@
 		var/turf/real_viewer_turf = get_turf(viewer.loc)
 
 		if(viewer.stat in list(CONSCIOUS, SOFT_CRIT)) // in conscious
-			if(!(viewer.is_blind())) // can see
+			if(!viewer.is_blind()) // can see
 				if(!(src.invisibility || src.alpha <= 50)) // cloaked
 					if(isturf(src.loc)) // on a turf, because they could be in a closet, disposals, or a vehicle.
 						if(can_see(real_viewer_turf, src, 7))
