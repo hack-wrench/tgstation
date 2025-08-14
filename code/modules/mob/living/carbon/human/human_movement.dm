@@ -28,7 +28,7 @@
 /mob/living/carbon/human/Move(NewLoc, direct)
 	. = ..()
 
-	view_humans_around()
+	SShuman_views.add_moved_human(src)
 
 	if(shoes && body_position == STANDING_UP && has_gravity(loc))
 		if((. && !moving_diagonally) || (!. && moving_diagonally == SECOND_DIAG_STEP))
@@ -37,4 +37,4 @@
 /mob/living/carbon/human/forceMove(atom/destination)
 	. = ..()
 
-	view_humans_around()
+	SShuman_views.add_moved_human(src)
